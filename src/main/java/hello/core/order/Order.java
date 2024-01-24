@@ -53,6 +53,11 @@ public class Order {
 
     @Override
     public String toString() {
-        return super.toString();
+        return "Order{" +
+                "memberId=" + memberId +
+                ", itemName='" + itemName + '\'' +
+                ", itemPrice=" + itemPrice +
+                ", discountAmount=" + discountAmount +
+                '}';
     }
 }
