@@ -5,7 +5,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 public class MemoryMemberRepository implements MemberRepository {
 
-    private final Map<Long, Member> store = new ConcurrentHashMap<>();
+    private final static Map<Long, Member> store = new ConcurrentHashMap<>();
 
     @Override
 
