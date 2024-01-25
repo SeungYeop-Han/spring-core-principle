@@ -8,7 +8,10 @@ import hello.core.member.MemberServiceImpl;
 public class MemberApp {
 
     public static void main(String[] args) {
-        MemberService memberService = new MemberServiceImpl();
+        AppConfig appConfig = new AppConfig();
+
+        // MemberService memberService = new MemberServiceImpl();
+        MemberService memberService = appConfig.memberService();
         Member newbie = new Member(1L, "Apple", Grade.VIP);
 
         // 회원 가입

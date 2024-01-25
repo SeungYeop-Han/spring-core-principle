@@ -13,14 +13,20 @@ import hello.core.order.OrderServiceImpl;
 public class OrderApp {
 
     public static void main(String[] args) {
+        AppConfig appConfig = new AppConfig();
+
         // 회원 가입 요청
         Long memberId = 1L;
         Member member = new Member(memberId, "Hans", Grade.VIP);
-        MemberService memberService = new MemberServiceImpl();
+
+        // MemberService memberService = new MemberServiceImpl();
+        MemberService memberService = appConfig.memberService();
         memberService.join(member);
 
         // 주문 생성 요청
-        OrderService orderService = new OrderServiceImpl();
+        // OrderService orderService = new OrderServiceImpl();
+        OrderService orderService = appConfig.orderService();
+
         Order order = orderService.createOrder(memberId, "Banana", 3000);
 
         // 반환된 주문 출력
