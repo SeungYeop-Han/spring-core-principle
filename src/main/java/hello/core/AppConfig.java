@@ -1,6 +1,8 @@
 package hello.core;
 
+import hello.core.discount.DiscountPolicy;
 import hello.core.discount.RateDiscountPolicy;
+import hello.core.member.MemberRepository;
 import hello.core.member.MemberService;
 import hello.core.member.MemberServiceImpl;
 import hello.core.member.MemoryMemberRepository;
@@ -9,11 +11,35 @@ import hello.core.order.OrderServiceImpl;
 
 public class AppConfig {
 
+    /*
+
+        public 역할 역할() {
+            return new 구현(
+                    의존하는역할1(),
+                    의존하는역할2(),
+                    의존하는역할3(),
+                    ...
+            )
+		}
+
+     */
+
     public MemberService memberService() {
-        return new MemberServiceImpl(new MemoryMemberRepository());
+        return new MemberServiceImpl(memberRepository());
     }
 
     public OrderService orderService() {
-        return new OrderServiceImpl(new MemoryMemberRepository(), new RateDiscountPolicy());
+        return new OrderServiceImpl(
+                memberRepository(),
+                discountPolicy()
+        );
+    }
+
+    private MemberRepository memberRepository() {
+        return new MemoryMemberRepository();
+    }
+
+    private DiscountPolicy discountPolicy() {
+        return new RateDiscountPolicy();
     }
 }
