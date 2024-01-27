@@ -43,7 +43,7 @@ public class ApplicationContextInfoTest {
         for (String beanDefinitionName : beanDefinitionNames) {
             BeanDefinition beanDefinition = ((GenericApplicationContext) ac).getBeanDefinition(beanDefinitionName);
 
-            if (beanDefinition.getRole() == BeanDefinition.ROLE_APPLICATION) {
+            if (beanDefinition.getRole() == BeanDefinition.ROLE_INFRASTRUCTURE) {
                 Object bean = ac.getBean(beanDefinitionName);
                 System.out.println("bean = " + beanDefinitionName + " Object = " + bean);
             }
