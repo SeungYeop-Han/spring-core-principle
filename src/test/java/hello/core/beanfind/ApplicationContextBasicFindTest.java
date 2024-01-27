@@ -45,7 +45,12 @@ public class ApplicationContextBasicFindTest {
     @Test
     void 존재하지_않는_빈_조회() {
         assertThrows(NoSuchBeanDefinitionException.class, () -> {
-            Object bean = ac.getBean("noBean");
+            try {
+                Object bean = ac.getBean("noBean");
+            } catch (Exception e) {
+                System.err.println(e);
+                throw e;
+            }
         });
     }
 }
