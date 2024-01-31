@@ -29,4 +29,13 @@ public class OrderServiceImpl implements OrderService {
         // 주문 생성 및 반환
         return new Order(memberId, itemName, itemPrice, discountAmount);
     }
+
+    /**
+     * 테스트 용도로만 사용할 것
+     * @return MemberRepository
+     */
+    public MemberRepository getMemberRepositoryForTest() {
+
+        return this.memberRepository;
+    }
 }
